@@ -9,13 +9,13 @@ let package = Package(
       .library(name: "DynamoDBService", targets: ["DynamoDBService"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-aws/aws-sdk-swift.git", from: "5.0.0-alpha.4")
+        .package(url: "https://github.com/soto-project/soto.git", from: "5.0.0-beta.2")
     ],
     targets: [
         .target(
             name: "DynamoDBService",
             dependencies: [
-                .product(name: "AWSDynamoDB", package: "aws-sdk-swift")
+                .product(name: "SotoDynamoDB", package: "soto")
             ]
         ),
         .testTarget(

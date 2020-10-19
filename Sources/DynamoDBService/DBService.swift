@@ -5,19 +5,18 @@
 //  Created by Alexey Pichukov on 28.08.2020.
 //
 
-import AWSDynamoDB
-import AsyncHTTPClient
+import SotoDynamoDB
 import Foundation
+import NIO
 
 public class DBService {
     
-    private let db: AWSDynamoDB.DynamoDB
+    private let db: DynamoDB
     private let tableName: String
     
-    public init(httpClient: HTTPClient, tableName: String, region: Region) {
+    public init(httpClient: AWSClient, tableName: String, region: Region) {
         self.tableName = tableName
-        self.db = AWSDynamoDB.DynamoDB(client: AWSClient(httpClientProvider: .shared(httpClient)),
-                                       region: region)
+        self.db = DynamoDB(client: httpClient, region: region)
     }
     
     /// `CREATE` a `DynamoDBConvertable` item in DynamoDB

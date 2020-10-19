@@ -5,7 +5,7 @@
 //  Created by Alexey Pichukov on 28.08.2020.
 //
 
-import AWSDynamoDB
+import SotoDynamoDB
 
 public protocol DynamoDBConvertable {
     static var primaryKeyField: String { get }
